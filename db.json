@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "author": "asdasd",
+      "title": "asd",
+      "picture": "asdasd",
+      "description": "asdasda",
+      "date": "2020-03-29T20:09:19.616Z",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "baev@test.com",
+      "password": "$2a$10$UQehHxSvpen.2lijDRxd3e2mMXrpZiUtw1jQ2d3U4tOeTt/IuTX1O",
+      "id": 1
+    }
+  ]
+}

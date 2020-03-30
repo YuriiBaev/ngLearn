@@ -1,0 +1,8 @@
+<div class="posts-container">
+  <div
+    *ngFor="let post of this.postsService.posts$ | async; trackBy: trackByFn"
+  >
+    <app-post [post]="post"></app-post>
+  </div>
+</div>
+
