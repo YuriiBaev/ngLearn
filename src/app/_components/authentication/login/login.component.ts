@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthServiceService } from 'src/app/_services/auth-service/auth-service.service';
-import { getLink, REGISTRATION } from '../../../constants/routes';
+import { AuthService } from 'src/app/_services/auth-service/auth.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -9,11 +8,10 @@ import { getLink, REGISTRATION } from '../../../constants/routes';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  registrationLink = getLink(REGISTRATION);
 
   constructor(
     private formBuilder: FormBuilder,
-    private authServiceService: AuthServiceService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -24,6 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authServiceService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value);
   }
 }

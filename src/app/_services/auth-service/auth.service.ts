@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { LOGIN } from '../../constants/routes';
 
 export interface Response {
   accessToken: string;
 }
 
+const ACCESS_TOKEN = 'accessToken';
+
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
   public accessToken$: BehaviorSubject<string>;
 
   constructor(
     private http: HttpClient,
     private router: Router
   ) {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem(ACCESS_TOKEN);
 
     this.accessToken$ = new BehaviorSubject<string>(accessToken);
   }
@@ -33,7 +36,7 @@ export class AuthServiceService {
 
     response$.subscribe(res => {
       this.accessToken$.next(res.accessToken);
-      localStorage.setItem('accessToken', res.accessToken);
+      localStorage.setItem(ACCESS_TOKEN, res.accessToken);
 
       this.router.navigate(['/']);
     });
@@ -47,8 +50,14 @@ export class AuthServiceService {
     response$.subscribe(res => {
       this.accessToken$.next(res);
 
-      localStorage.setItem('accessToken', res.accessToken);
+      localStorage.setItem(ACCESS_TOKEN, res.accessToken);
       this.router.navigate(['/']);
     });
+  }
+
+  logout() {
+    this.accessToken$.next('');
+    localStorage.removeItem(ACCESS_TOKEN);
+    this.router.navigate([LOGIN]);
   }
 }

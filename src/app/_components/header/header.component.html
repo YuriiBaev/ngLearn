@@ -1,0 +1,8 @@
+<div>
+  <a routerLink="/" *ngIf="isAuthorized">Home</a>
+  <a [routerLink]="[myPosts]" *ngIf="isAuthorized">My posts</a>
+  <a [routerLink]="[createPost]" *ngIf="isAuthorized">Create post</a>
+  <a [routerLink]="[profile]" *ngIf="isAuthorized">Profile</a>
+  <span (click)="authService.logout()" *ngIf="isAuthorized">Logout</span>
+  <a [routerLink]="[registrationLink]" *ngIf="!isAuthorized">Registration</a>
+</div>

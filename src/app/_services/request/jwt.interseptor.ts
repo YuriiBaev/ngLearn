@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { AuthServiceService } from '../auth-service/auth-service.service';
+import { AuthService } from '../auth-service/auth.service';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -10,12 +10,12 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   constructor(
-    private authServiceService: AuthServiceService,
+    private authService: AuthService,
     public router: Router,
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const accessToken = this.authServiceService.accessToken$.value;
+    const accessToken = this.authService.accessToken$.value;
 
     request = request.clone({
       url: `${environment.apiUrl}${request.url}`,

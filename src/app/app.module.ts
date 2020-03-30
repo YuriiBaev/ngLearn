@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { PostComponent } from './_components/posts/post/post.component';
 import { PostsComponent } from './_components/posts/posts.component';
 import { PostCreateComponent } from './_components/posts/post-create/post-create.component';
+import { HeaderComponent } from './_components/header/header.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { PostCreateComponent } from './_components/posts/post-create/post-create
     PostComponent,
     PostsComponent,
     PostCreateComponent,
+    HeaderComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
