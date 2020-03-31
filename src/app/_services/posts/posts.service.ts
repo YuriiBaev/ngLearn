@@ -55,6 +55,18 @@ export class PostsService {
       this.postsSubject$.next(res);
     });
   }
+
+  deletePost(postId: number) {
+    const url = `/posts/${postId}`;
+
+    const postData$ = this.http.delete<Response>(url).pipe(
+      switchMap(() => this.postsRequest())
+    );
+
+    postData$.subscribe(res => {
+      this.postsSubject$.next(res);
+    });
+  }
 }
 // combineLatest for parallel requests
 // const a = combineLatest(

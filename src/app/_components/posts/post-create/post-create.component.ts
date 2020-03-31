@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostsService } from '../../../_services/posts/posts.service';
 import { convertToB64 } from 'src/app/helper/file';
+import { AuthService } from '../../../_services/auth-service/auth.service';
 
 @Component({
   selector: 'app-post-create',
@@ -14,6 +15,7 @@ export class PostCreateComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private postsService: PostsService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,8 @@ export class PostCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.addPostForm.patchValue({userId: this.authService.user.id});
+
     this.postsService.addPost(this.addPostForm.value);
   }
 }

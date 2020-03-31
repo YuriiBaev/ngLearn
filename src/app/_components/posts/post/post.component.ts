@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../interfaces';
+import { PostsService } from '../../../_services/posts/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -9,8 +10,14 @@ import { Post } from '../interfaces';
 export class PostComponent implements OnInit {
   @Input() post: Post;
 
-  constructor() { }
+  constructor(
+    private postsService: PostsService
+  ) { }
 
   ngOnInit() {
+  }
+
+  editPost() {
+
   }
 }

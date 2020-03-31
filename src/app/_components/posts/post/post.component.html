@@ -4,4 +4,6 @@
   <img class="picture" src="{{post.picture}}"  alt="pic"/>
   <div class="description">{{post.description | truncate:[200, '...']}}</div>
   <div class="date">{{post.date | date}}</div>
+  <button type="button" (click)="postsService.deletePost(post.id)"></button>
+  <button type="button" (click)="editPost"></button>
 </div>

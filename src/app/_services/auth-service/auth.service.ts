@@ -44,6 +44,7 @@ export class AuthService {
     getUser$.subscribe((res) => {
       const user = res[0];
 
+      this.user$.next(user);
       localStorage.setItem(USER, JSON.stringify(user));
     });
   }
@@ -83,5 +84,16 @@ export class AuthService {
     this.accessToken$.next('');
     localStorage.removeItem(ACCESS_TOKEN);
     this.router.navigate([LOGIN]);
+  }
+
+  editProfile(fromData) {
+    const url = `/users/${this.user.id}`;
+
+    const subscription$ = this.http.patch<User>(url, JSON.stringify(fromData));
+
+    subscription$.subscribe((user) => {
+      this.user$.next(user);
+      localStorage.setItem(USER, JSON.stringify(user));
+    });
   }
 }

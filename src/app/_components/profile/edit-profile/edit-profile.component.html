@@ -1,0 +1,43 @@
+<div>
+  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <img src="{{editProfileForm.value.avatar}}" alt="avatar">
+      </div>
+      <input
+        style="display: none"
+        type="file" (change)="setPhoto($event)"
+        #fileInput>
+      <button
+        (click)="fileInput.click()"
+        type="button"
+      >Select File</button>
+    </div>
+    <div>
+      <label>
+        Name
+        <input formControlName="name" type="text">
+      </label>
+    </div>
+    <div>
+      <label>
+        Surname
+        <input formControlName="surname" type="text">
+      </label>
+    </div>
+    <div>
+      <label>
+        Email
+        <input formControlName="email" type="text">
+      </label>
+    </div>
+    <div>
+      <app-select
+        [value]="editProfileForm.value.gender"
+        [options]="genderOptions"
+        [onChange]="setGender"
+      ></app-select>
+    </div>
+    <button type="submit">Update profile</button>
+  </form>
+</div>

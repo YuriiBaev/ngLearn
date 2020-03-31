@@ -18,6 +18,8 @@ import { HeaderComponent } from './_components/header/header.component';
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { MyPostsComponent } from './_components/my-posts/my-posts.component';
+import { EditProfileComponent } from './_components/profile/edit-profile/edit-profile.component';
+import { SelectComponent } from './_components/_common/select/select.component';
 
 @NgModule({
   imports: [
@@ -40,6 +42,8 @@ import { MyPostsComponent } from './_components/my-posts/my-posts.component';
     TruncatePipe,
     ProfileComponent,
     MyPostsComponent,
+    EditProfileComponent,
+    SelectComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
