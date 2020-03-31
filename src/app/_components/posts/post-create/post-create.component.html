@@ -7,20 +7,24 @@
       </label>
     </div>
     <div>
-      <label>
-        picture
-        <input formControlName="picture" type="image">
-      </label>
+      <input
+        style="display: none"
+        type="file" (change)="setPhoto($event)"
+        #fileInput>
+      <button
+        (click)="fileInput.click()"
+        type="button"
+      >Select File</button>
     </div>
     <div>
       <label>
-        <title></title>
+        Title
         <input formControlName="title" type="text">
       </label>
     </div>
     <div>
       <label>
-        description
+        Description
         <textarea formControlName="description" type="text"></textarea>
       </label>
     </div>

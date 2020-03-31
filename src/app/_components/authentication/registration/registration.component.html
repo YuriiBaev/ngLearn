@@ -2,7 +2,19 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
   <div>
     <label>
-      email
+      Name
+      <input formControlName="name" type="text">
+    </label>
+  </div>
+  <div>
+    <label>
+      Surname
+      <input formControlName="surname" type="text">
+    </label>
+  </div>
+  <div>
+    <label>
+      Email
       <input formControlName="email" type="email">
     </label>
   </div>
@@ -10,12 +22,6 @@
     <label>
       Password
       <input formControlName="password" type="password">
-    </label>
-  </div>
-  <div>
-    <label>
-      Confirm Password
-      <input formControlName="confirmPassword" type="password">
     </label>
   </div>
   <button

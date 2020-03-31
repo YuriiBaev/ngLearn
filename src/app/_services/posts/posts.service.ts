@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject, concat, Observable, Subscription, throwError } from 'rxjs';
-import { catchError, map, subscribeOn, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
 import { Post } from '../../_components/posts/interfaces';
 
 interface Response {
   data: any;
+}
+
+interface PostsParams {
+  [userId: string]: string;
 }
 
 @Injectable({
@@ -22,14 +27,14 @@ export class PostsService {
     this.posts$ = this.postsSubject$.asObservable();
   }
 
-  postsRequest() {
+  postsRequest(params?: PostsParams) {
     const url = '/posts';
 
-    return this.http.get<Post[]>(url);
+    return this.http.get<Post[]>(url, { params });
   }
 
-  getPosts() {
-    this.postsRequest().subscribe(res => {
+  getPosts(params?: PostsParams) {
+    this.postsRequest(params).subscribe(res => {
       this.postsSubject$.next(res);
     });
   }

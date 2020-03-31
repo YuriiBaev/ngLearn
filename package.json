@@ -2,7 +2,7 @@
   "name": "ng-learn",
   "version": "0.0.0",
   "scripts": {
-    "startServer": "json-server db.json -m ./node_modules/json-server-auth",
+    "startServer": "json-server --port 4000 db.json -m ./node_modules/json-server-auth",
     "config": "ts-node config-env.ts",
     "ng": "ng",
     "start": "ng serve",
