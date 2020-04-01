@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { User } from '@components/profile/interfaces';
+
 import { LOGIN } from '../../constants/routes';
-import { User } from 'src/app/_components/profile/interfaces';
 
 export interface Response {
   accessToken: string;

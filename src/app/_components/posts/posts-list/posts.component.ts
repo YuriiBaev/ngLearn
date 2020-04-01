@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PostsService } from '../../../_services/posts/posts.service';
-import { AuthService } from '../../../_services/auth-service/auth.service';
+import { PostsService } from '@services/posts/posts.service';
+import { AuthService } from '@services/auth-service/auth.service';
 
 @Component({
   selector: 'app-posts',

@@ -2,8 +2,11 @@
   <form [formGroup]="addPostForm" (ngSubmit)="onSubmit()">
     <div>
       <label>
-        Author
-        <input formControlName="author" type="text">
+        <app-autocomplete
+          [suggestions]="authorSuggestions"
+          [onChange]="setFormValue('author')"
+          label="Author"
+        ></app-autocomplete>
       </label>
     </div>
     <div>
@@ -28,6 +31,6 @@
         <textarea formControlName="description" type="text"></textarea>
       </label>
     </div>
-    <button type="submit">add post</button>
+    <button type="submit" [disabled]="pendingService.pending">add post</button>
   </form>
 </div>

@@ -1258,16 +1258,6 @@ after@0.8.2:
   resolved "https://registry.yarnpkg.com/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
   integrity sha1-/ts5T58OAqqXaOcCvaI7UF+ufh8=
 
-ag-grid-angular@^23.0.0:
-  version "23.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-angular/-/ag-grid-angular-23.0.0.tgz#49011f9caec58926a59433a58ce5d5be3bfccb3c"
-  integrity sha512-hMh5xNEtktyX3KERA3JuuRMT3nJOzAW34T1pKzpjVPTjHHUSiHgvwU59nmPYaMAJ3zk/t1HmyZicVrkl/ILnng==
-
-ag-grid-community@^23.0.1:
-  version "23.0.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.0.1.tgz#d3eb49d30970f12575016fe850679205af3063f8"
-  integrity sha512-oD6cTvUNNKfRAGNAb/D1juuwuhFKb17/CB/XY0rGjYJMCe8IXF/u4YrtyeURjU8oLCav1WAmhZGNjBCHDR9rCQ==
-
 agent-base@4, agent-base@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-4.3.0.tgz#8165f01c436009bccad0b1d122f05ed770efc6ee"

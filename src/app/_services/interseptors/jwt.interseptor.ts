@@ -5,8 +5,6 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth-service/auth.service';
 import { Router } from '@angular/router';
 
-import { environment } from '../../../environments/environment';
-
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   constructor(
@@ -16,13 +14,6 @@ export class JwtInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = this.authService.accessToken$.value;
-
-    request = request.clone({
-      url: `${environment.apiUrl}${request.url}`,
-      setHeaders: {
-        'Content-Type': 'application/json'
-      }
-    });
 
     if (accessToken) {
       request = request.clone({

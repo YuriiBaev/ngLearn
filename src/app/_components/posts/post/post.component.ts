@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../interfaces';
-import { PostsService } from '../../../_services/posts/posts.service';
+import { PostsService } from '@services/posts/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -18,6 +18,5 @@ export class PostComponent implements OnInit {
   }
 
   editPost() {
-
   }
 }

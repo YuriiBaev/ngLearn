@@ -1,15 +1,15 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './_components/authentication/login/login.component';
-import { HomeComponent } from './_components/home/home.component';
-import { AuthGuardService } from './_services/auth-service/auth-guard.service';
-import { RegistrationComponent } from './_components/authentication/registration/registration.component';
-import { LOGIN, REGISTRATION, ADD_POST, PROFILE, MY_POSTS, EDIT_PROFILE } from './constants/routes';
-import { PostCreateComponent } from './_components/posts/post-create/post-create.component';
-import { ProfileComponent } from './_components/profile/profile.component';
-import { MyPostsComponent } from './_components/my-posts/my-posts.component';
-import { EditProfileComponent } from './_components/profile/edit-profile/edit-profile.component';
+import { LoginComponent } from '@components/authentication/login/login.component';
+import { HomeComponent } from '@components/home/home.component';
+import { AuthGuardService } from '@services/auth-service/auth-guard.service';
+import { RegistrationComponent } from '@components/authentication/registration/registration.component';
+import { PostCreateComponent } from '@components/posts/post-create/post-create.component';
+import { ProfileComponent } from '@components/profile/profile.component';
+import { MyPostsComponent } from '@components/my-posts/my-posts.component';
+import { EditProfileComponent } from '@components/profile/edit-profile/edit-profile.component';
 
+import { LOGIN, REGISTRATION, ADD_POST, PROFILE, MY_POSTS, EDIT_PROFILE } from './constants/routes';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },

@@ -21,8 +21,6 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "ag-grid-angular": "^23.0.0",
-    "ag-grid-community": "^23.0.1",
     "dotenv": "^8.2.0",
     "fs": "^0.0.1-security",
     "rxjs": "~6.4.0",

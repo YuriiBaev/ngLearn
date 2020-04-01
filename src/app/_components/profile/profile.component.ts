@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../_services/auth-service/auth.service';
-import { getLink, EDIT_PROFILE } from 'src/app/constants/routes';
+import { AuthService } from '@services/auth-service/auth.service';
+import { getLink, EDIT_PROFILE } from 'app/constants/routes';
 
 @Component({
   selector: 'app-profile',

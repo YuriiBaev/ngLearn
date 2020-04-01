@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { Post } from '../../_components/posts/interfaces';
+import { Post } from '@components/posts/interfaces';
+import { Router } from '@angular/router';
 
 interface Response {
   data: any;
@@ -21,7 +22,8 @@ export class PostsService {
   public readonly posts$: Observable<Post[]>;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
   ) {
     this.postsSubject$ = new BehaviorSubject<Post[]>([]);
     this.posts$ = this.postsSubject$.asObservable();
@@ -53,6 +55,7 @@ export class PostsService {
 
     postData$.subscribe(res => {
       this.postsSubject$.next(res);
+      this.router.navigate(['/']);
     });
   }
 

@@ -1,0 +1,21 @@
+<div>
+  <label>
+    {{label}}
+    <input
+      type="text"
+      [value]="value"
+      (keyup)="onValueChange($event.target['value'])"
+    >
+  </label>
+  <div
+    class="autocomplete-suggestions"
+    *ngIf="value"
+  >
+    <div
+      *ngFor="let suggestion of suggestions"
+      (click)="onValueChange(suggestion)"
+    >
+      <span *ngIf="isMatch(value, suggestion)">{{suggestion}}</span>
+    </div>
+  </div>
+</div>

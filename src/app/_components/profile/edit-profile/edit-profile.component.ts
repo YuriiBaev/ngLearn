@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../_services/auth-service/auth.service';
+import { AuthService } from '@services/auth-service/auth.service';
 import { convertToB64 } from '../../../helper/file';
 
 @Component({
