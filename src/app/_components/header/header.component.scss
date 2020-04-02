@@ -1,0 +1,33 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid;
+
+  .profile {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    top: 20px;
+    border: 1px solid;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+  }
+
+  & > * {
+    display: block;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  & > *:hover {
+    color: brown;
+  }
+}

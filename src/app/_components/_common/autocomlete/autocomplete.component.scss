@@ -1,0 +1,21 @@
+.autocomplete, .autocomplete-suggestions, label, input {
+  width: 100%;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  background-color: #fff;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  .suggestion {
+    cursor: pointer;
+    &:hover {
+      background-color: #00000017;
+    }
+  }
+}

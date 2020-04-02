@@ -18,6 +18,7 @@ import { SelectComponent } from '@components/_common/select/select.component';
 import { AutocompleteComponent } from '@components/_common/autocomlete/autocomplete.component';
 import { JwtInterceptor } from '@services/interseptors/jwt.interseptor';
 import { RequestInterceptor } from '@services/interseptors/request.interseptor';
+import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
 
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { appRoutingModule } from './app.routing';
     EditProfileComponent,
     SelectComponent,
     AutocompleteComponent,
+    PostDetailComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

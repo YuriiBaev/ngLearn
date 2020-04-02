@@ -9,16 +9,18 @@ import { ProfileComponent } from '@components/profile/profile.component';
 import { MyPostsComponent } from '@components/my-posts/my-posts.component';
 import { EditProfileComponent } from '@components/profile/edit-profile/edit-profile.component';
 
-import { LOGIN, REGISTRATION, ADD_POST, PROFILE, MY_POSTS, EDIT_PROFILE } from './constants/routes';
+import * as route from 'app/constants/routes';
+import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
-  { path: ADD_POST, component: PostCreateComponent, canActivate: [AuthGuardService] },
-  { path: PROFILE, component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: MY_POSTS, component: MyPostsComponent, canActivate: [AuthGuardService] },
-  { path: EDIT_PROFILE, component: EditProfileComponent, canActivate: [AuthGuardService] },
-  { path: LOGIN, component: LoginComponent },
-  { path: REGISTRATION, component: RegistrationComponent },
+  { path: route.ADD_POST, component: PostCreateComponent, canActivate: [AuthGuardService] },
+  { path: route.PROFILE, component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: route.MY_POSTS, component: MyPostsComponent, canActivate: [AuthGuardService] },
+  { path: route.EDIT_PROFILE, component: EditProfileComponent, canActivate: [AuthGuardService] },
+  { path: route.DETAILS, component: PostDetailComponent, canActivate: [AuthGuardService] },
+  { path: route.LOGIN, component: LoginComponent },
+  { path: route.REGISTRATION, component: RegistrationComponent },
 
   { path: '**', redirectTo: '' }
 ];

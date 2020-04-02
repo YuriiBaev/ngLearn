@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { Post } from '@components/posts/interfaces';
@@ -19,14 +19,22 @@ interface PostsParams {
 })
 export class PostsService {
   private postsSubject$: BehaviorSubject<Post[]>;
-  public readonly posts$: Observable<Post[]>;
+  private postSubject$: BehaviorSubject<Post>;
 
   constructor(
     private http: HttpClient,
     private router: Router,
   ) {
     this.postsSubject$ = new BehaviorSubject<Post[]>([]);
-    this.posts$ = this.postsSubject$.asObservable();
+    this.postSubject$ = new BehaviorSubject<Post>(null);
+  }
+
+  get posts() {
+    return this.postsSubject$.value;
+  }
+
+  get post() {
+    return this.postSubject$.value;
   }
 
   postsRequest(params?: PostsParams) {
@@ -35,9 +43,21 @@ export class PostsService {
     return this.http.get<Post[]>(url, { params });
   }
 
+  postsDetailRequest(id: string) {
+    const url = `/posts/${id}`;
+
+    return this.http.get<Post>(url);
+  }
+
   getPosts(params?: PostsParams) {
     this.postsRequest(params).subscribe(res => {
       this.postsSubject$.next(res);
+    });
+  }
+
+  getPostDetail(id: string) {
+    this.postsDetailRequest(id).subscribe(res => {
+      this.postSubject$.next(res);
     });
   }
 
