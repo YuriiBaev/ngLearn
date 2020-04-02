@@ -1,0 +1,12 @@
+<div class="form-input">
+  <label [formGroup]="form">
+    {{label}}
+    <select [formControlName]='name' (change)="onChange($event)">
+      <option [value]="null" disabled>Select ...</option>
+      <option
+        *ngFor="let option of options; trackBy: trackByFn"
+        [value]="option.value"
+      >{{option.label}}</option>
+    </select>
+  </label>
+</div>

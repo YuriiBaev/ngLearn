@@ -1,43 +1,32 @@
-<div>
+<div class="form-container">
   <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
-    <div>
-      <div>
-        <img src="{{editProfileForm.value.avatar}}" alt="avatar">
-      </div>
-      <input
-        style="display: none"
-        type="file" (change)="setPhoto($event)"
-        #fileInput>
-      <button
-        (click)="fileInput.click()"
-        type="button"
-      >Select File</button>
-    </div>
-    <div>
-      <label>
-        Name
-        <input formControlName="name" type="text">
-      </label>
-    </div>
-    <div>
-      <label>
-        Surname
-        <input formControlName="surname" type="text">
-      </label>
-    </div>
-    <div>
-      <label>
-        Email
-        <input formControlName="email" type="text">
-      </label>
-    </div>
-    <div>
-      <app-select
-        [value]="editProfileForm.value.gender"
-        [options]="genderOptions"
-        [onChange]="setGender"
-      ></app-select>
-    </div>
+    <app-image-uploader
+      [form]="editProfileForm"
+      name="avatar"
+      label="Avatar"
+    ></app-image-uploader>
+    <app-input-form
+      [form]="editProfileForm"
+      name="name"
+      label="Name"
+    ></app-input-form>
+    <app-input-form
+      [form]="editProfileForm"
+      name="surname"
+      label="Surname"
+    ></app-input-form>
+    <app-input-form
+      [form]="editProfileForm"
+      name="email"
+      label="Email"
+      type="email"
+    ></app-input-form>
+    <app-select
+      [form]="editProfileForm"
+      [options]="genderOptions"
+      name="gender"
+      label="Gender"
+    ></app-select>
     <button type="submit">Update profile</button>
   </form>
 </div>

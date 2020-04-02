@@ -13,6 +13,8 @@ export class ImageUploaderComponent {
   @Input() name: string;
   @Input() label: string;
 
+  defaultPhoto = 'assets/image/picture-upload.png';
+
   constructor(
     private formsValidation: FormsValidationService,
   ) { }

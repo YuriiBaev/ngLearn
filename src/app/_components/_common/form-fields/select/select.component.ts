@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 interface Option {
   value: string | number;
@@ -8,14 +9,19 @@ interface Option {
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css']
+  styleUrls: ['./select.component.scss']
 })
 export class SelectComponent {
   @Input() options: Option[];
-  @Input() value: Option;
-  @Input() onChange: (e: Event) => void;
+  @Input() form: FormGroup;
+  @Input() name: string;
+  @Input() label: string;
 
   trackByFn(index, item) {
     return item.value;
+  }
+
+  onChange = ({target}) => {
+    this.form.patchValue({[name]: target.value});
   }
 }

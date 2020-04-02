@@ -5,7 +5,7 @@ import { FormsValidationService } from '@services/forms-validation/forms-validat
 @Component({
   selector: 'app-textarea-form',
   templateUrl: './textarea-form.component.html',
-  styleUrls: ['./textarea-form.component.css']
+  styleUrls: ['./textarea-form.component.scss']
 })
 export class TextareaFormComponent {
   @Input() form: FormGroup;

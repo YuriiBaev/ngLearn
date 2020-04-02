@@ -1,9 +1,8 @@
 <div class="image-uploader" [formGroup]="form">
   <div class="image">
     <img
-      [src]="form.value[name]"
+      [src]="form.value[name] || defaultPhoto"
       alt="picture"
-      *ngIf="form.value[name]"
       (click)="fileInput.click()"
     >
   </div>

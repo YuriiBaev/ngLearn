@@ -3,20 +3,20 @@
   display: flex;
   justify-content: space-around;
   border: 1px solid;
+  height: 30px;
 
   .profile {
     display: flex;
     position: absolute;
     flex-direction: column;
     align-items: center;
-    right: 0;
-    top: 20px;
+    right: 20px;
+    top: 32px;
     border: 1px solid;
 
     .image-container {
       width: 100px;
       height: 100px;
-      background-color: gray;
 
       img {
         width: 100%;
@@ -31,6 +31,7 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+    padding: 5px 0;
   }
 
   & > *:hover {

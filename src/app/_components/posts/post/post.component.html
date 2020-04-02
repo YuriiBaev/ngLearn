@@ -1,7 +1,7 @@
 <div [class]="containerClassName" (click)="goToDetails($event)" *ngIf="post">
   <img class="picture" src="{{post.picture}}"  alt="pic"/>
-  <div class="author">{{post.author}}</div>
-  <div class="title">{{post.title}}</div>
+  <h2 class="author">{{post.author}}</h2>
+  <h3 class="title">{{post.title}}</h3>
   <div class="description">
     {{detail ? post.description : post.description | truncate:[200, '...']}}
   </div>

@@ -16,7 +16,7 @@ import { HeaderComponent } from '@components/header/header.component';
 import { ProfileComponent } from '@components/profile/profile.component';
 import { MyPostsComponent } from '@components/posts/my-posts/my-posts.component';
 import { EditProfileComponent } from '@components/profile/edit-profile/edit-profile.component';
-import { SelectComponent } from '@components/_common/select/select.component';
+import { SelectComponent } from '@components/_common/form-fields/select/select.component';
 import { AutocompleteComponent } from '@components/_common/form-fields/autocomlete/autocomplete.component';
 import { JwtInterceptor } from '@services/interseptors/jwt.interseptor';
 import { RequestInterceptor } from '@services/interseptors/request.interseptor';
@@ -29,6 +29,7 @@ import { InputFormComponent } from '@components/_common/form-fields/input-form/i
 import { ImageUploaderComponent } from '@components/_common/form-fields/image-uploader/image-uploader.component';
 import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
 import { TextareaFormComponent } from '@components/_common/form-fields/textarea-form/textarea-form.component';
+import { CapitalizePipe } from './_pipes/capitalize.pipe';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { TextareaFormComponent } from '@components/_common/form-fields/textarea-
     ImageUploaderComponent,
     EditPostComponent,
     TextareaFormComponent,
+    CapitalizePipe,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

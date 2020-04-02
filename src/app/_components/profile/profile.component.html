@@ -1,18 +1,25 @@
-<div>
+<div class="profile-container">
   <div>
-    <img src="" alt="avatar"/>
+    <img [src]="authService.user.avatar" alt="avatar"/>
   </div>
-  <div>
-    <span>Name</span> - <span>{{authService.user.name}}</span>
+  <div class="profile-content">
+    <div class="field">
+      <span class="name">Name</span>
+      <span class="value">{{authService.user.name | capitalize}}</span>
+    </div>
+    <div class="field">
+      <span class="name">Surname</span>
+      <span class="value">{{authService.user.surname | capitalize}}</span>
+    </div>
+    <div class="field">
+      <span class="name">Email</span>
+      <span class="value">{{authService.user.email}}</span>
+    </div>
+    <div class="field">
+      <span class="name">Gender</span>
+      <span class="value">{{authService.user.gender | capitalize}}</span>
+    </div>
   </div>
-  <div>
-    <span>Surname</span> - <span>{{authService.user.surname}}</span>
-  </div>
-  <div>
-    <span>Email</span> - <span>{{authService.user.email}}</span>
-  </div>
-  <div>
-    <span>Gender</span> - <span>{{authService.user.gender}}</span>
-  </div>
+
   <a [routerLink]="editProfile">Edit Profile</a>
 </div>

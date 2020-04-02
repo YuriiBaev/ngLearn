@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { User } from '@components/profile/interfaces';
 
-import { LOGIN } from '../../constants/routes';
+import { LOGIN, PROFILE } from '../../constants/routes';
 
 export interface Response {
   accessToken: string;
@@ -13,6 +13,7 @@ export interface Response {
 
 const ACCESS_TOKEN = 'accessToken';
 const USER = 'user';
+const defaultAvatar = 'assets/image/img_avatar.png';
 
 @Injectable({
   providedIn: 'root'
@@ -43,11 +44,11 @@ export class AuthService {
   getUserProfile(email) {
     const getUser$ = this.http.get<User[]>(`/users?email=${email}`);
 
-    getUser$.subscribe((res) => {
-      const user = res[0];
+    getUser$.subscribe(([user]) => {
+      const processedUser = {...user, avatar: user.avatar || defaultAvatar};
 
-      this.user$.next(user);
-      localStorage.setItem(USER, JSON.stringify(user));
+      this.user$.next(processedUser);
+      localStorage.setItem(USER, JSON.stringify(processedUser));
     });
   }
 
@@ -95,8 +96,11 @@ export class AuthService {
     const subscription$ = this.http.patch<User>(url, JSON.stringify(fromData));
 
     subscription$.subscribe((user) => {
-      this.user$.next(user);
-      localStorage.setItem(USER, JSON.stringify(user));
+      const processedUser = {...user, avatar: user.avatar || defaultAvatar};
+
+      this.user$.next(processedUser);
+      localStorage.setItem(USER, JSON.stringify(processedUser));
+      this.router.navigate([PROFILE]);
     });
   }
 }
