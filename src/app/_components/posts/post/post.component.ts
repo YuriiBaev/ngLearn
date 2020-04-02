@@ -13,6 +13,7 @@ import { AuthService } from '@services/auth-service/auth.service';
 export class PostComponent {
   @Input() post: Post;
   @Input() additionalClass = '';
+  @Input() detail = false;
 
   constructor(
     private postsService: PostsService,
@@ -32,13 +33,18 @@ export class PostComponent {
     return String(this.authService.user.id) === String(this.post.userId);
   }
 
-  editPost() {
+  editPost(e) {
+    e.stopPropagation();
+
+    const path = `edit-post/${this.post.id}`;
+    this.router.navigate([path]);
   }
 
   goToDetails = (e) => {
     e.stopPropagation();
 
-    this.router.navigate([`details/${this.post.id}`]);
+    const path = `details/${this.post.id}`;
+    this.router.navigate([path]);
   }
 
   deletePost = (e) => {

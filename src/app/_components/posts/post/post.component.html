@@ -2,7 +2,9 @@
   <img class="picture" src="{{post.picture}}"  alt="pic"/>
   <div class="author">{{post.author}}</div>
   <div class="title">{{post.title}}</div>
-  <div class="description">{{post.description | truncate:[200, '...']}}</div>
+  <div class="description">
+    {{detail ? post.description : post.description | truncate:[200, '...']}}
+  </div>
   <div class="date">{{post.date | date}}</div>
   <div class="post-footer">
     <button
@@ -14,7 +16,7 @@
     </button>
     <button
       type="button"
-      (click)="editPost"
+      (click)="editPost($event)"
       *ngIf="isOwnPost"
     >
       Edit Post

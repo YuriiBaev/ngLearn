@@ -15,15 +15,15 @@
     name="title"
     label="Title"
   ></app-input-form>
-  <app-input-form
+  <app-textarea-form
     [form]="postForm"
     name="description"
     label="Description"
-  ></app-input-form>
+  ></app-textarea-form>
   <button
     type="submit"
     [disabled]="pendingService.pending || postForm.invalid"
   >
-    add post
+    {{editMode ? 'Update Post' : "Add Post"}}
   </button>
 </form>

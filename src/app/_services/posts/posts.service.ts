@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { Post } from '@components/posts/interfaces';
@@ -19,7 +19,7 @@ interface PostsParams {
 })
 export class PostsService {
   private postsSubject$: BehaviorSubject<Post[]>;
-  private postSubject$: BehaviorSubject<Post>;
+  public postSubject$: BehaviorSubject<Post>;
 
   constructor(
     private http: HttpClient,
@@ -70,6 +70,24 @@ export class PostsService {
     };
 
     const postData$ = this.http.post<Response>(url, data).pipe(
+      switchMap(() => this.postsRequest())
+    );
+
+    postData$.subscribe(res => {
+      this.postsSubject$.next(res);
+      this.router.navigate(['/']);
+    });
+  }
+
+  updatePost(formData, id) {
+    const url = `/posts/${id}`;
+
+    const data = {
+      ...formData,
+      date: new Date().toISOString()
+    };
+
+    const postData$ = this.http.patch<Response>(url, data).pipe(
       switchMap(() => this.postsRequest())
     );
 

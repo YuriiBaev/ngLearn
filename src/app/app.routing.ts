@@ -11,6 +11,7 @@ import { EditProfileComponent } from '@components/profile/edit-profile/edit-prof
 
 import * as route from 'app/constants/routes';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
+import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: route.MY_POSTS, component: MyPostsComponent, canActivate: [AuthGuardService] },
   { path: route.EDIT_PROFILE, component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path: route.DETAILS, component: PostDetailComponent, canActivate: [AuthGuardService] },
+  { path: route.EDIT_POST, component: EditPostComponent, canActivate: [AuthGuardService] },
   { path: route.LOGIN, component: LoginComponent },
   { path: route.REGISTRATION, component: RegistrationComponent },
 

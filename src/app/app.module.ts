@@ -25,9 +25,10 @@ import { PostDetailComponent } from '@components/posts/post-detail/post-detail.c
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
-import { InputFormComponent } from '@components/_common/form-fields/input/input-form.component';
+import { InputFormComponent } from '@components/_common/form-fields/input-form/input-form.component';
 import { ImageUploaderComponent } from '@components/_common/form-fields/image-uploader/image-uploader.component';
 import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
+import { TextareaFormComponent } from '@components/_common/form-fields/textarea-form/textarea-form.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { EditPostComponent } from '@components/posts/edit-post/edit-post.compone
     InputFormComponent,
     ImageUploaderComponent,
     EditPostComponent,
+    TextareaFormComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
