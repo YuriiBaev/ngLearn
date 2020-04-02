@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../_services/auth-service/auth.service';
+import { AuthService } from '@services/auth-service/auth.service';
+import { getLink, EDIT_PROFILE } from 'app/constants/routes';
 
 @Component({
   selector: 'app-profile',
@@ -7,6 +8,7 @@ import { AuthService } from '../../_services/auth-service/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  editProfile = getLink(EDIT_PROFILE);
 
   constructor(
     private authService: AuthService

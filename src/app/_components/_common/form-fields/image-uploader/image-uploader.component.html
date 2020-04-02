@@ -1,0 +1,24 @@
+<div class="image-uploader" [formGroup]="form">
+  <div class="image">
+    <img
+      [src]="form.value[name]"
+      alt="picture"
+      *ngIf="form.value[name]"
+      (click)="fileInput.click()"
+    >
+  </div>
+  <input
+    style="display: none"
+    type="file"
+    (change)="setPhoto($event)"
+    #fileInput>
+  <button
+    (click)="fileInput.click()"
+    type="button"
+  >{{form.value[name] ? 'Edit File' : 'Select File'}}
+  </button>
+  <span
+    *ngIf="validate(name)">
+        Required
+    </span>
+</div>

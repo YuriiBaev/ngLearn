@@ -1,17 +1,16 @@
 <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>
-      Email
-      <input formControlName="email" type="email">
-    </label>
-  </div>
-  <div>
-    <label>
-      Password
-      <input formControlName="password" type="password">
-    </label>
-  </div>
+  <app-input-form
+    [form]="loginForm"
+    name="email"
+    label="Email"
+  ></app-input-form>
+  <app-input-form
+    [form]="loginForm"
+    name="password"
+    label="Password"
+    type="password"
+  ></app-input-form>
   <button
     type="submit"
     [disabled]="loginForm.invalid"

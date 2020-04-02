@@ -1,29 +1,28 @@
 <h2>Registrations</h2>
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>
-      Name
-      <input formControlName="name" type="text">
-    </label>
-  </div>
-  <div>
-    <label>
-      Surname
-      <input formControlName="surname" type="text">
-    </label>
-  </div>
-  <div>
-    <label>
-      Email
-      <input formControlName="email" type="email">
-    </label>
-  </div>
-  <div>
-    <label>
-      Password
-      <input formControlName="password" type="password">
-    </label>
-  </div>
+<form autocomplete="off" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <app-input-form
+    [form]="registrationForm"
+    name="name"
+    label="Name"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="surname"
+    label="Surname"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="email"
+    label="Email"
+    type="email"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="password"
+    label="Password"
+    type="password"
+    autocomplete="new-password"
+  ></app-input-form>
   <button
     type="submit"
     [disabled]="registrationForm.invalid"
