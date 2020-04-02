@@ -1,9 +1,10 @@
 <div class="form-input">
     <label [formGroup]="form">
       {{label}}
-      <input [formControlName]='name' type="text">
+      <input [formControlName]='name' [type]='type' [autocomplete]="autocomplete">
     </label>
     <span
+      class="form-error"
       *ngIf="validate(name)">
         Required
     </span>

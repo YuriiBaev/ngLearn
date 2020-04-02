@@ -11,6 +11,8 @@ export class InputFormComponent {
   @Input() form: FormGroup;
   @Input() name: string;
   @Input() label: string;
+  @Input() type = 'text';
+  @Input() autocomplete = '';
 
   constructor(
     private formsValidation: FormsValidationService
