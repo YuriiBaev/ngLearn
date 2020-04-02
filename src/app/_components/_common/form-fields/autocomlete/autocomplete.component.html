@@ -1,12 +1,15 @@
 <div class="autocomplete" #suggestionRef>
-  <label>
+  <label [formGroup]="form">
     {{label}}
     <input
       type="text"
-      [value]="value"
-      (keyup)="onValueChange($event)"
+      [formControlName]='name'
     >
   </label>
+  <span
+    *ngIf="validate(name)">
+        Required
+    </span>
   <div
     class="autocomplete-suggestions"
     *ngIf="value && isSuggestionOpen"

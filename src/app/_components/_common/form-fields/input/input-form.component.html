@@ -1,0 +1,10 @@
+<div class="form-input">
+    <label [formGroup]="form">
+      {{label}}
+      <input [formControlName]='name' type="text">
+    </label>
+    <span
+      *ngIf="validate(name)">
+        Required
+    </span>
+  </div>

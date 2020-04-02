@@ -3,7 +3,6 @@ import { Post } from '../interfaces';
 import { PostsService } from '@services/posts/posts.service';
 import { Router } from '@angular/router';
 
-import { DETAILS } from 'app/constants/routes';
 import { AuthService } from '@services/auth-service/auth.service';
 
 @Component({
@@ -23,6 +22,14 @@ export class PostComponent {
 
   get containerClassName() {
     return `post-container ${this.additionalClass}`;
+  }
+
+  get isOwnPost() {
+    if (!this.authService.user.id || !this.post.userId) {
+      return false;
+    }
+
+    return String(this.authService.user.id) === String(this.post.userId);
   }
 
   editPost() {

@@ -1,21 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from '@components/authentication/login/login.component';
 import { HomeComponent } from '@components/home/home.component';
 import { RegistrationComponent } from '@components/authentication/registration/registration.component';
 import { PostComponent } from '@components/posts/post/post.component';
 import { PostsComponent } from '@components/posts/posts-list/posts.component';
-import { PostCreateComponent } from '@components/posts/post-create/post-create.component';
+import { PostFormComponent } from '@components/posts/post-form/post-form.component';
 import { HeaderComponent } from '@components/header/header.component';
 import { ProfileComponent } from '@components/profile/profile.component';
-import { MyPostsComponent } from '@components/my-posts/my-posts.component';
+import { MyPostsComponent } from '@components/posts/my-posts/my-posts.component';
 import { EditProfileComponent } from '@components/profile/edit-profile/edit-profile.component';
 import { SelectComponent } from '@components/_common/select/select.component';
-import { AutocompleteComponent } from '@components/_common/autocomlete/autocomplete.component';
+import { AutocompleteComponent } from '@components/_common/form-fields/autocomlete/autocomplete.component';
 import { JwtInterceptor } from '@services/interseptors/jwt.interseptor';
 import { RequestInterceptor } from '@services/interseptors/request.interseptor';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
@@ -23,6 +25,9 @@ import { PostDetailComponent } from '@components/posts/post-detail/post-detail.c
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
+import { InputFormComponent } from '@components/_common/form-fields/input/input-form.component';
+import { ImageUploaderComponent } from '@components/_common/form-fields/image-uploader/image-uploader.component';
+import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
 
 @NgModule({
   imports: [
@@ -31,6 +36,8 @@ import { appRoutingModule } from './app.routing';
     HttpClientModule,
     ReactiveFormsModule,
     appRoutingModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -39,7 +46,7 @@ import { appRoutingModule } from './app.routing';
     RegistrationComponent,
     PostComponent,
     PostsComponent,
-    PostCreateComponent,
+    PostFormComponent,
     HeaderComponent,
     TruncatePipe,
     ProfileComponent,
@@ -48,11 +55,15 @@ import { appRoutingModule } from './app.routing';
     SelectComponent,
     AutocompleteComponent,
     PostDetailComponent,
+    InputFormComponent,
+    ImageUploaderComponent,
+    EditPostComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

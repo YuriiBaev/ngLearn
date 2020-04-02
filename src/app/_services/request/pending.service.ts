@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PendingService {
 
-  private pending$: BehaviorSubject<boolean>;
+  public pending$: BehaviorSubject<boolean>;
 
   constructor() {
     this.pending$ = new BehaviorSubject<boolean>(false);

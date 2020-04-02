@@ -1,15 +1,23 @@
-<div [class]="containerClassName" (click)="goToDetails($event)">
+<div [class]="containerClassName" (click)="goToDetails($event)" *ngIf="post">
+  <img class="picture" src="{{post.picture}}"  alt="pic"/>
   <div class="author">{{post.author}}</div>
   <div class="title">{{post.title}}</div>
-  <img class="picture" src="{{post.picture}}"  alt="pic"/>
   <div class="description">{{post.description | truncate:[200, '...']}}</div>
   <div class="date">{{post.date | date}}</div>
   <div class="post-footer">
-    <button type="button" (click)="deletePost($event)">Delete Post</button>
+    <button
+      type="button"
+      (click)="deletePost($event)"
+      *ngIf="isOwnPost"
+    >
+      Delete Post
+    </button>
     <button
       type="button"
       (click)="editPost"
-      *ngIf="authService.user.id === post.userId"
-    >Edit Post</button>
+      *ngIf="isOwnPost"
+    >
+      Edit Post
+    </button>
   </div>
 </div>
