@@ -21,14 +21,14 @@ import { AutocompleteComponent } from '@components/_common/form-fields/autocomle
 import { JwtInterceptor } from '@services/interseptors/jwt.interseptor';
 import { RequestInterceptor } from '@services/interseptors/request.interseptor';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
+import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
+import { InputFormComponent } from '@components/_common/form-fields/input-form/input-form.component';
+import { ImageUploaderComponent } from '@components/_common/form-fields/image-uploader/image-uploader.component';
+import { TextareaFormComponent } from '@components/_common/form-fields/textarea-form/textarea-form.component';
 
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
-import { InputFormComponent } from '@components/_common/form-fields/input-form/input-form.component';
-import { ImageUploaderComponent } from '@components/_common/form-fields/image-uploader/image-uploader.component';
-import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
-import { TextareaFormComponent } from '@components/_common/form-fields/textarea-form/textarea-form.component';
 import { CapitalizePipe } from './_pipes/capitalize.pipe';
 
 @NgModule({

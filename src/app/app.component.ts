@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PendingService } from '@services/request/pending.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+import { PendingService } from '@services/request/pending.service';
 
 @Component({
   selector: 'app-root',

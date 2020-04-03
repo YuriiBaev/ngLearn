@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PostsService } from '@services/posts/posts.service';
 import { AuthService } from '@services/auth-service/auth.service';
-
 import { PendingService } from '@services/request/pending.service';
 import { FormsValidationService } from '@services/forms-validation/forms-validation.service';
 import { Post } from '@components/posts/interfaces';

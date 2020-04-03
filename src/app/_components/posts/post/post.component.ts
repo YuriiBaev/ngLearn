@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Post } from '../interfaces';
-import { PostsService } from '@services/posts/posts.service';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@services/auth-service/auth.service';
+import { PostsService } from '@services/posts/posts.service';
+
+import { Post } from '../interfaces';
 
 @Component({
   selector: 'app-post',

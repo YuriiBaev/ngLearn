@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { convertToB64 } from '../../../../helper/file';
+
 import { FormsValidationService } from '@services/forms-validation/forms-validation.service';
+
+import { convertToB64 } from '../../../../helper/file';
 
 @Component({
   selector: 'app-image-uploader',

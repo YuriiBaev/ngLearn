@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import { Post } from '@components/posts/interfaces';
-import { Router } from '@angular/router';
 
 interface Response {
   data: any;

@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  getLink,
-  REGISTRATION,
-  ADD_POST,
-  PROFILE,
-  MY_POSTS, LOGIN,
-} from '../../constants/routes';
-import { AuthService } from '@services/auth-service/auth.service';
 import { Router } from '@angular/router';
+
+import { AuthService } from '@services/auth-service/auth.service';
+
+import * as routes from '../../constants/routes';
 
 @Component({
   selector: 'app-header',
@@ -15,11 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  registrationLink = getLink(REGISTRATION);
-  loginLink = getLink(LOGIN);
-  myPosts = getLink(MY_POSTS);
-  profile = getLink(PROFILE);
-  createPost = getLink(ADD_POST);
+  registrationLink = routes.getLink(routes.REGISTRATION);
+  loginLink = routes.getLink(routes.LOGIN);
+  myPosts = routes.getLink(routes.MY_POSTS);
+  profile = routes.getLink(routes.PROFILE);
+  createPost = routes.getLink(routes.ADD_POST);
 
   constructor(
     private authService: AuthService,
