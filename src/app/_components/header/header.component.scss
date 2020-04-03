@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid;
+  height: 30px;
+
+  .profile {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    right: 20px;
+    top: 32px;
+    border: 1px solid;
+
+    .image-container {
+      width: 100px;
+      height: 100px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  & > * {
+    display: block;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    padding: 5px 0;
+  }
+
+  & > *:hover {
+    color: brown;
+  }
+}

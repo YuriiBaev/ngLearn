@@ -1,0 +1,32 @@
+<div class="form-container">
+  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+    <app-image-uploader
+      [form]="editProfileForm"
+      name="avatar"
+      label="Avatar"
+    ></app-image-uploader>
+    <app-input-form
+      [form]="editProfileForm"
+      name="name"
+      label="Name"
+    ></app-input-form>
+    <app-input-form
+      [form]="editProfileForm"
+      name="surname"
+      label="Surname"
+    ></app-input-form>
+    <app-input-form
+      [form]="editProfileForm"
+      name="email"
+      label="Email"
+      type="email"
+    ></app-input-form>
+    <app-select
+      [form]="editProfileForm"
+      [options]="genderOptions"
+      name="gender"
+      label="Gender"
+    ></app-select>
+    <button type="submit">Update profile</button>
+  </form>
+</div>

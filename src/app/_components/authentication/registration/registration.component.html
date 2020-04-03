@@ -1,0 +1,32 @@
+<h2>Registrations</h2>
+<form autocomplete="off" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <app-input-form
+    [form]="registrationForm"
+    name="name"
+    label="Name"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="surname"
+    label="Surname"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="email"
+    label="Email"
+    type="email"
+  ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="password"
+    label="Password"
+    type="password"
+    autocomplete="new-password"
+  ></app-input-form>
+  <button
+    type="submit"
+    [disabled]="registrationForm.invalid"
+  >
+    Registration
+  </button>
+</form>

@@ -1,0 +1,29 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: '-SFCompactRounded-Regular', sans-serif;
+  font-size: 14px;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-input {
+  margin-bottom: 20px;
+  display: block;
+  input, textarea, select {
+    width: 100%;
+  }
+}
+
+.form-error {
+  color: red;
+}

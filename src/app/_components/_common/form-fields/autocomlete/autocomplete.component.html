@@ -1,0 +1,26 @@
+<div class="autocomplete" #suggestionRef>
+  <label [formGroup]="form">
+    {{label}}
+    <input
+      type="text"
+      [formControlName]='name'
+    >
+  </label>
+  <span
+    class="form-error"
+    *ngIf="validate(name)">
+        Required
+    </span>
+  <div
+    class="autocomplete-suggestions"
+    *ngIf="value && isSuggestionOpen"
+  >
+    <div
+      *ngFor="let suggestion of suggestions"
+      (click)="onSuggestionSelect(suggestion)"
+      class="suggestion"
+    >
+      <span *ngIf="isMatch(value, suggestion)">{{suggestion}}</span>
+    </div>
+  </div>
+</div>

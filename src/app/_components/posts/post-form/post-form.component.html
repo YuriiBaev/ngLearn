@@ -1,0 +1,29 @@
+<form class="create-post-form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <app-image-uploader
+    [form]="postForm"
+    name="picture"
+    label="Picture"
+  ></app-image-uploader>
+  <app-autocomplete
+    [form]="postForm"
+    name="author"
+    label="Author"
+    [suggestions]="authorSuggestions"
+  ></app-autocomplete>
+  <app-input-form
+    [form]="postForm"
+    name="title"
+    label="Title"
+  ></app-input-form>
+  <app-textarea-form
+    [form]="postForm"
+    name="description"
+    label="Description"
+  ></app-textarea-form>
+  <button
+    type="submit"
+    [disabled]="pendingService.pending || postForm.invalid"
+  >
+    {{editMode ? 'Update Post' : "Add Post"}}
+  </button>
+</form>

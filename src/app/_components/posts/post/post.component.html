@@ -1,0 +1,25 @@
+<div [class]="containerClassName" (click)="goToDetails($event)" *ngIf="post">
+  <img class="picture" src="{{post.picture}}"  alt="pic"/>
+  <h2 class="author">{{post.author}}</h2>
+  <h3 class="title">{{post.title}}</h3>
+  <div class="description">
+    {{detail ? post.description : post.description | truncate:[200, '...']}}
+  </div>
+  <div class="date">{{post.date | date}}</div>
+  <div class="post-footer">
+    <button
+      type="button"
+      (click)="deletePost($event)"
+      *ngIf="isOwnPost"
+    >
+      Delete Post
+    </button>
+    <button
+      type="button"
+      (click)="editPost($event)"
+      *ngIf="isOwnPost"
+    >
+      Edit Post
+    </button>
+  </div>
+</div>
