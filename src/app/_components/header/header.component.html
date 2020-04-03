@@ -1,7 +1,26 @@
 <div class="header">
-  <a routerLink="/" *ngIf="isAuthorized">Home</a>
-  <a [routerLink]="[myPosts]" *ngIf="isAuthorized">My posts</a>
-  <a [routerLink]="[createPost]" *ngIf="isAuthorized">Create post</a>
+  <a
+    routerLink="/"
+    *ngIf="isAuthorized"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{exact: true}"
+  >
+    Home
+  </a>
+  <a
+    [routerLink]="[myPosts]"
+    *ngIf="isAuthorized"
+    routerLinkActive="active-link"
+  >
+    My posts
+  </a>
+  <a
+    [routerLink]="[createPost]"
+    *ngIf="isAuthorized"
+    routerLinkActive="active-link"
+  >
+    Create post
+  </a>
   <div class="profile" *ngIf="isAuthorized && authService.user">
     <div class="image-container">
       <img
