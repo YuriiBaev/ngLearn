@@ -1,8 +1,8 @@
 <form class="create-post-form" [formGroup]="postForm" (ngSubmit)="onSubmit()">
   <app-image-uploader
     [form]="postForm"
-    name="picture"
-    label="Picture"
+    name="pictures"
+    [multiple]="true"
   ></app-image-uploader>
   <app-autocomplete
     [form]="postForm"

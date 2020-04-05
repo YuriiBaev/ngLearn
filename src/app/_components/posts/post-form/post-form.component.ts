@@ -51,13 +51,13 @@ export class PostFormComponent implements OnInit, OnDestroy {
   }
 
   formInitialize(post) {
-    const { author, title, description, picture, userId } = post;
+    const { author, title, description, pictures, userId } = post;
 
     this.postForm = this.formBuilder.group({
       author: [author, Validators.required],
       title: [title, Validators.required],
       description: [description, Validators.required],
-      picture: [picture, Validators.required],
+      pictures: [pictures, Validators.required],
       userId: [userId],
     });
 
