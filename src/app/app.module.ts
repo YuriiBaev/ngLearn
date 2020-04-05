@@ -1,10 +1,12 @@
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule} from '@angular/cdk/drag-drop';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { LoginComponent } from '@components/authentication/login/login.component';
 import { HomeComponent } from '@components/home/home.component';
@@ -40,6 +42,7 @@ import { CapitalizePipe } from './_pipes/capitalize.pipe';
     appRoutingModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    DragDropModule,
   ],
   declarations: [
     AppComponent,

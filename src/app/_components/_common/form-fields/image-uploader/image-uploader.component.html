@@ -1,21 +1,36 @@
 <div class="image-uploader" [formGroup]="form">
-  <div class="image">
+  <div class="main-image">
     <img
-      [src]="form.value[name] || defaultPhoto"
+      [src]="images[0] || defaultPhoto"
       alt="picture"
       (click)="fileInput.click()"
     >
   </div>
+
+  <div class="gallery" *ngIf="images.length > 1" cdkDropListGroup>
+    <div cdkDropList [cdkDropListData]="i" *ngFor="let image of images; let i = index; trackBy: trackByFn">
+      <div class="image-container" cdkDrag [cdkDragData]="i" (cdkDragEntered)="onDragged($event)">
+        <img style="height: 100px; object-fit: contain" [src]="image" alt="image">
+        <img class="drag-preview" *cdkDragPreview [src]="image" [alt]="image">
+        <div class="drag-placeholder" *cdkDragPlaceholder></div>
+      </div>
+    </div>
+  </div>
+
   <input
     style="display: none"
     type="file"
     (change)="setPhoto($event)"
-    #fileInput>
+    #fileInput
+    [multiple]="multiple"
+  >
+
   <button
     (click)="fileInput.click()"
     type="button"
-  >{{form.value[name] ? 'Edit File' : 'Select File'}}
+  >{{form.value[name] ? 'Edit Photo' : 'Select Photo'}}
   </button>
+
   <span
     *ngIf="validate(name)">
         Required

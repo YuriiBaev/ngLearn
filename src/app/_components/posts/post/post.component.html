@@ -1,5 +1,14 @@
 <div [class]="containerClassName" (click)="goToDetails($event)" *ngIf="post">
-  <img class="picture" src="{{post.picture}}"  alt="pic"/>
+  <div class="gallery">
+    <div class="main-image">
+      <img class="picture" src="{{post.pictures[0]}}" alt="pic"/>
+    </div>
+    <div class="pictures">
+      <div class="image-container" *ngFor="let picture of post.pictures; trackBy: trackByFn; let i = index">
+        <img class="picture" src="{{picture}}" *ngIf="i !== 0" alt="pic"/>
+      </div>
+    </div>
+  </div>
   <h2 class="author">{{post.author}}</h2>
   <h3 class="title">{{post.title}}</h3>
   <div class="description">

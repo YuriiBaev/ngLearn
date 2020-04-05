@@ -53,4 +53,8 @@ export class PostComponent {
 
     this.postsService.deletePost(Number(this.post.id));
   }
+
+  trackByFn(index, item) {
+    return item;
+  }
 }

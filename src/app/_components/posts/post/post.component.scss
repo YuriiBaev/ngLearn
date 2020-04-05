@@ -12,12 +12,6 @@
     margin-bottom: 10px;
   }
 
-  .picture {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-  }
-
   .post-footer {
     display: flex;
     justify-content: space-around;
@@ -26,10 +20,24 @@
 
   &.detail {
     border: none;
+  }
+}
 
-    .picture {
+.gallery {
+  .main-image {
+    img {
       width: 100%;
-      height: 100%;
+    }
+  }
+
+  .pictures {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    img {
+      height: 150px;
       object-fit: contain;
     }
   }
