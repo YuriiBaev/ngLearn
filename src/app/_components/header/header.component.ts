@@ -11,8 +11,8 @@ import * as routes from '../../constants/routes';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  registrationLink = routes.getLink(routes.REGISTRATION);
-  loginLink = routes.getLink(routes.LOGIN);
+  registrationLink = routes.getLink(routes.REGISTRATION_ROUTE);
+  loginLink = routes.getLink(routes.LOGIN_ROUTE);
   myPosts = routes.getLink(routes.MY_POSTS);
   profile = routes.getLink(routes.PROFILE);
   createPost = routes.getLink(routes.ADD_POST);
