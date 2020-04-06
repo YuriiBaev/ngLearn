@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { User } from '@components/profile/interfaces';
 
-import { LOGIN, PROFILE } from '../../constants/routes';
+import { LOGIN_ROUTE, PROFILE } from '../../constants/routes';
 
 export interface Response {
   accessToken: string;
@@ -87,7 +87,7 @@ export class AuthService {
     this.accessToken$.next('');
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(USER);
-    this.router.navigate([LOGIN]);
+    this.router.navigate([LOGIN_ROUTE]);
   }
 
   editProfile(fromData) {

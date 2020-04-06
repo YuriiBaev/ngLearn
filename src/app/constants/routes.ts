@@ -1,5 +1,9 @@
+export const AUTH = 'auth';
 export const LOGIN = 'login';
+export const LOGIN_ROUTE = `${AUTH}/${LOGIN}`;
 export const REGISTRATION = 'registration';
+export const REGISTRATION_ROUTE = `${AUTH}/${REGISTRATION}`;
+
 export const ADD_POST = 'add-post';
 export const PROFILE = 'profile';
 export const EDIT_PROFILE = 'profile-edit';
