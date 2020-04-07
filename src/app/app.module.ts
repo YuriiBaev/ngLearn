@@ -19,12 +19,12 @@ import { JwtInterceptor } from '@services/interceptors/jwt.interceptor';
 import { RequestInterceptor } from '@services/interceptors/request.interceptor';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
 import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
+import { SharedComponentsModule } from '@modules/shared-components/shared-components.module';
 
 import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { CapitalizePipe } from './_pipes/capitalize.pipe';
-import { SharedComponentsModule } from './_modules/shared-components/shared-components.module';
 
 @NgModule({
   imports: [

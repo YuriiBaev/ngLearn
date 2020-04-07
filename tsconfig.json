@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@services/*": ["app/_services/*"],
-      "@components/*": ["app/_components/*"]
+      "@components/*": ["app/_components/*"],
+      "@modules/*": ["app/_modules/*"]
     }
   },
   "angularCompilerOptions": {
