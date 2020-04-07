@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatVideoModule } from 'mat-video';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -36,6 +37,7 @@ import { SharedComponentsModule } from './_modules/shared-components/shared-comp
     NgxSpinnerModule,
     BrowserAnimationsModule,
     SharedComponentsModule,
+    MatVideoModule,
   ],
   declarations: [
     AppComponent,

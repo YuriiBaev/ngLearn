@@ -1,5 +1,14 @@
 <div [class]="containerClassName" (click)="goToDetails($event)" *ngIf="post">
   <div class="gallery">
+    <mat-video
+      src="https://vjs.zencdn.net/v/oceans.mp4"
+      #videoPlayer
+      [loop]="true"
+      [muted]="true"
+      (timeChange)="timeChange($event)"
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+    ></mat-video>
     <div class="main-image">
       <img class="picture" src="{{post.pictures[0]}}" alt="pic"/>
     </div>

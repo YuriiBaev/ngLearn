@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@services/auth-service/auth.service';
@@ -15,12 +15,16 @@ export class PostComponent {
   @Input() post: Post;
   @Input() additionalClass = '';
   @Input() detail = false;
+  @Input() isPlaying = false;
+
+  @ViewChild('videoPlayer', { static: false }) videoPlayer;
 
   constructor(
     private postsService: PostsService,
     private authService: AuthService,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   get containerClassName() {
     return `post-container ${this.additionalClass}`;
@@ -32,6 +36,21 @@ export class PostComponent {
     }
 
     return String(this.authService.user.id) === String(this.post.userId);
+  }
+
+  timeChange(e) {
+    if (e > 5) {
+      this.videoPlayer.video.nativeElement.currentTime = 1;
+    }
+  }
+
+  onMouseEnter() {
+    this.videoPlayer.video.nativeElement.play();
+  }
+
+
+  onMouseLeave() {
+    this.videoPlayer.video.nativeElement.pause();
   }
 
   editPost(e) {
