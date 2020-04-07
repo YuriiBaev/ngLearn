@@ -27,7 +27,7 @@ export class PostComponent {
   }
 
   get isOwnPost() {
-    if (!this.authService.user.id || !this.post.userId) {
+    if (!this.authService.userId || !this.post.userId) {
       return false;
     }
 

@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { User } from '@components/profile/interfaces';
+import { FormsValidationService } from '@services/forms-validation/forms-validation.service';
 
 import { LOGIN_ROUTE, PROFILE } from '../../constants/routes';
 
@@ -24,7 +25,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private formValidation: FormsValidationService,
   ) {
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
     const user = JSON.parse(localStorage.getItem(USER));
@@ -41,10 +43,15 @@ export class AuthService {
     return this.user$.value;
   }
 
+  get userId() {
+    return this.user && this.user.id;
+  }
+
   getUserProfile(email) {
     const getUser$ = this.http.get<User[]>(`/users?email=${email}`);
 
     getUser$.subscribe(([user]) => {
+      if (!user) { return; }
       const processedUser = {...user, avatar: user.avatar || defaultAvatar};
 
       this.user$.next(processedUser);
@@ -57,14 +64,17 @@ export class AuthService {
 
     const response$ = this.http.post<Response>(url, {email, password});
 
-    response$.subscribe(res => {
-      this.accessToken$.next(res.accessToken);
-      localStorage.setItem(ACCESS_TOKEN, res.accessToken);
+    response$.subscribe(
+      res => {
+        this.accessToken$.next(res.accessToken);
+        localStorage.setItem(ACCESS_TOKEN, res.accessToken);
 
-      this.getUserProfile(email);
+        this.getUserProfile(email);
 
-      this.router.navigate(['/']);
-    });
+        this.router.navigate(['/']);
+      },
+      this.formValidation.catchFormErrors
+    );
   }
 
   registration(fromData) {

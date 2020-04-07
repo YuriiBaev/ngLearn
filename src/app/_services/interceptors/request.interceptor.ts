@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -34,7 +34,7 @@ export class RequestInterceptor implements HttpInterceptor {
       catchError((err) => {
         this.pendingService.stopPending();
 
-        return of(err);
+        return throwError(err);
       })
     );
   }

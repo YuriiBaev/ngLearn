@@ -4,7 +4,10 @@
       <img class="picture" src="{{post.pictures[0]}}" alt="pic"/>
     </div>
     <div class="pictures">
-      <div class="image-container" *ngFor="let picture of post.pictures; trackBy: trackByFn; let i = index">
+      <div
+        class="image-container"
+        *ngFor="let picture of post.pictures; trackBy: trackByFn; let i = index"
+      >
         <img class="picture" src="{{picture}}" *ngIf="i !== 0" alt="pic"/>
       </div>
     </div>

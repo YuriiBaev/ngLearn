@@ -15,8 +15,8 @@ import { HeaderComponent } from '@components/header/header.component';
 import { ProfileComponent } from '@components/profile/profile.component';
 import { MyPostsComponent } from '@components/posts/my-posts/my-posts.component';
 import { EditProfileComponent } from '@components/profile/edit-profile/edit-profile.component';
-import { JwtInterceptor } from '@services/interseptors/jwt.interseptor';
-import { RequestInterceptor } from '@services/interseptors/request.interseptor';
+import { JwtInterceptor } from '@services/interceptors/jwt.interceptor';
+import { RequestInterceptor } from '@services/interceptors/request.interceptor';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
 import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
 

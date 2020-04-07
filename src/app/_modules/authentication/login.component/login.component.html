@@ -13,6 +13,7 @@
         label="Password"
         type="password"
       ></app-input-form>
+      <div class="form-error">{{formValidations.serverError}}</div>
       <button
         type="submit"
         [disabled]="loginForm.invalid"
