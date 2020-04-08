@@ -23,6 +23,13 @@
     type="password"
     autocomplete="new-password"
   ></app-input-form>
+  <app-input-form
+    [form]="registrationForm"
+    name="confirmPassword"
+    label="ConfirmPassword"
+    type="password"
+    autocomplete="new-password"
+  ></app-input-form>
   <button
     type="submit"
     [disabled]="registrationForm.invalid"
