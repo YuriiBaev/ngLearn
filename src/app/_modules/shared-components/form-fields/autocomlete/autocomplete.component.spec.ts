@@ -1,21 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutocimpeteComponent } from './autocomplete.component';
+import { AutocompleteComponent } from './autocomplete.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('AutocimpeteComponent', () => {
-  let component: AutocimpeteComponent;
-  let fixture: ComponentFixture<AutocimpeteComponent>;
+describe('AutocompleteComponent', () => {
+  let component: AutocompleteComponent;
+  let fixture: ComponentFixture<AutocompleteComponent>;
+  const formBuilder: FormBuilder = new FormBuilder();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutocimpeteComponent ]
+      imports: [ReactiveFormsModule],
+      declarations: [AutocompleteComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        {provide: FormBuilder, useValue: formBuilder}
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutocimpeteComponent);
+    fixture = TestBed.createComponent(AutocompleteComponent);
     component = fixture.componentInstance;
+    component.form = formBuilder.group({
+      test: []
+    });
+    component.name = 'test';
+
     fixture.detectChanges();
   });
 

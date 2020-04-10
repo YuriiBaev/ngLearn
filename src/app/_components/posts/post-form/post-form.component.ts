@@ -6,10 +6,7 @@ import { AuthService } from '@services/auth-service/auth.service';
 import { PendingService } from '@services/request/pending.service';
 import { FormsValidationService } from '@services/forms-validation/forms-validation.service';
 import { Post } from '@components/posts/interfaces';
-
-const defaultPost = {
-  author: '', title: '', description: '', picture: '', userId: ''
-};
+import { DEFAULT_POST } from '@components/posts/constants';
 
 @Component({
   selector: 'app-post-form',
@@ -20,7 +17,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
   @Input() editMode = false;
   @Input() post: Post;
 
-  postForm: FormGroup;
+  postForm: FormGroup = new FormGroup({});
   authorSuggestions: string[];
 
   constructor(
@@ -32,7 +29,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.formInitialize(defaultPost);
+    this.formInitialize(DEFAULT_POST);
 
     if (this.editMode) {
       this.postsService.postSubject$.subscribe((post) => {
@@ -46,7 +43,11 @@ export class PostFormComponent implements OnInit, OnDestroy {
   }
 
   setSuggestions() {
-    const {name, surname} = this.authService.user;
+    const user = this.authService.user;
+
+    if (!user) { return; }
+
+    const {name, surname} = user;
     this.authorSuggestions = [name, surname, `${name} ${surname}`];
   }
 
@@ -61,7 +62,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
       userId: [userId],
     });
 
-    this.postForm.patchValue({userId: this.authService.user.id});
+    this.postForm.patchValue({userId: this.authService.userId});
   }
 
   validate(field: string) {
@@ -69,11 +70,11 @@ export class PostFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const formData = this.postForm.value;
+    const { value: formData, invalid} = this.postForm;
 
-    if (!this.postForm.invalid) {
+    if (!invalid) {
       if (this.editMode) {
-        this.postsService.updatePost(this.postForm.value, this.postsService.post.id);
+        this.postsService.updatePost(formData, this.postsService.post.id);
         return;
       }
 

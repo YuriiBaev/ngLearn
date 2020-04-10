@@ -16,6 +16,10 @@ const ACCESS_TOKEN = 'accessToken';
 const USER = 'user';
 const defaultAvatar = 'assets/image/img_avatar.png';
 
+const DEFAULT_USER = {
+  avatar: '', name: '', surname: '', email: '', gender: ''
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +36,7 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem(USER));
 
     this.accessToken$ = new BehaviorSubject<string>(accessToken);
-    this.user$ = new BehaviorSubject<User>(user);
+    this.user$ = new BehaviorSubject<User>(user || DEFAULT_USER);
   }
 
   get accessToken() {

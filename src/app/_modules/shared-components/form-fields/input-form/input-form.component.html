@@ -1,11 +1,15 @@
 <div class="form-input">
-    <label [formGroup]="form">
-      {{label}}
-      <input [formControlName]='name' [type]='type' [autocomplete]="autocomplete">
-    </label>
-    <span
-      class="form-error"
-      *ngIf="validate(name)">
+  <label [formGroup]="form">
+    {{label}}
+    <input
+      [formControlName]='name'
+      [type]='type'
+      [autocomplete]="autocomplete"
+    >
+  </label>
+  <span
+    class="form-error"
+    *ngIf="validate(name)">
         {{validate(name)}}
     </span>
-  </div>
+</div>

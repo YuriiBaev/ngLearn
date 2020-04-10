@@ -25,7 +25,7 @@ export class ImageUploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.form.value[this.name]) {
+    if (this.form && this.form.value[this.name]) {
       this.images = this.form.value[this.name];
     }
   }

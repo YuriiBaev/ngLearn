@@ -1,9 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { PostsService } from './posts.service';
 
-describe('EventsService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe('PostService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+      ],
+    });
+  });
 
   it('should be created', () => {
     const service: PostsService = TestBed.get(PostsService);

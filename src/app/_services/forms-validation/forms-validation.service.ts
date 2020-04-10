@@ -26,6 +26,9 @@ export class FormsValidationService {
 
   validate = (form: FormGroup, fieldName: string) => {
     const formControl = form.controls[fieldName];
+
+    if (!formControl) { return false; }
+
     if (formControl.invalid && formControl.touched && formControl.errors) {
       return this.getErrorMessage(formControl.errors);
     }

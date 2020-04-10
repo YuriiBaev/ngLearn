@@ -18,10 +18,11 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-    const { avatar, name, surname, email, gender } = this.authService.user;
+    const {avatar, name, surname, email, gender} = this.authService.user;
 
     this.editProfileForm = this.formBuilder.group({
       avatar: [avatar, Validators.required],

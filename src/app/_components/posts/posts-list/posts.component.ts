@@ -9,7 +9,7 @@ import { AuthService } from '@services/auth-service/auth.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  @Input() ownPosts: boolean;
+  @Input() ownPosts = false;
 
   constructor(
     private postsService: PostsService,
