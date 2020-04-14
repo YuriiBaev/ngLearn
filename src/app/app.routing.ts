@@ -14,9 +14,9 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
-  { path: route.ADD_POST, component: PostFormComponent, canActivate: [AuthGuardService] },
+  { path: route.ADD_POST, component: PostFormComponent, canActivate: [AuthGuardService], data: {animation: 'AddPost'} },
   { path: route.PROFILE, component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: route.MY_POSTS, component: MyPostsComponent, canActivate: [AuthGuardService] },
+  { path: route.MY_POSTS, component: MyPostsComponent, canActivate: [AuthGuardService], data: {animation: 'MyPosts'} },
   { path: route.EDIT_PROFILE, component: EditProfileComponent, canActivate: [AuthGuardService] },
   { path: route.DETAILS, component: PostDetailComponent, canActivate: [AuthGuardService] },
   { path: route.EDIT_POST, component: EditPostComponent, canActivate: [AuthGuardService] },
@@ -28,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 

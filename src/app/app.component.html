@@ -1,7 +1,7 @@
 <div class="app-container">
   <ngx-spinner></ngx-spinner>
   <app-header></app-header>
-  <div class="router-container">
-    <router-outlet></router-outlet>
+  <div class="router-container" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

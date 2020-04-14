@@ -25,17 +25,20 @@ import { TruncatePipe } from './_pipes/truncate.pipe';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { CapitalizePipe } from './_pipes/capitalize.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     RouterModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule,
     SharedComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   declarations: [
     AppComponent,

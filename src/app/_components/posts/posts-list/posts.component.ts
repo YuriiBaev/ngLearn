@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 import { PostsService } from '@services/posts/posts.service';
 import { AuthService } from '@services/auth-service/auth.service';
@@ -8,7 +8,7 @@ import { AuthService } from '@services/auth-service/auth.service';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnDestroy {
   @Input() ownPosts = false;
 
   constructor(
@@ -22,6 +22,10 @@ export class PostsComponent implements OnInit {
       : null;
 
     this.postsService.getPosts(params);
+  }
+
+  ngOnDestroy(): void {
+    this.postsService.resetPostsSubjects();
   }
 
   trackByFn(index, item) {

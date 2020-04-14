@@ -37,6 +37,11 @@ export class PostsService {
     return this.postSubject$.value;
   }
 
+  resetPostsSubjects() {
+    this.postsSubject$.next([]);
+    this.postSubject$.next(null);
+  }
+
   postsRequest(params?: PostsParams) {
     const url = '/posts';
 
