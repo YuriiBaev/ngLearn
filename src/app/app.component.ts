@@ -3,7 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { get } from 'lodash';
 
 import { PendingService } from '@services/request/pending.service';
-import { RouterOutlet } from '@angular/router';
+import { NavigationStart, Router, RouterEvent, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './app.router-animations';
 
 @Component({
@@ -18,9 +18,26 @@ export class AppComponent implements OnInit {
   constructor(
     private pendingService: PendingService,
     private spinner: NgxSpinnerService,
-  ) {}
+    private router: Router,
+  ) {
+  }
 
   ngOnInit(): void {
+    this.spinnerHandler();
+    this.routerPendingHandler();
+  }
+
+  routerPendingHandler() {
+    this.router.events.subscribe((event: RouterEvent) => {
+      if (event instanceof NavigationStart) {
+        this.pendingService.startPending();
+      } else {
+        this.pendingService.stopPending();
+      }
+    });
+  }
+
+  spinnerHandler() {
     this.pendingService.pending$.subscribe(value => {
       if (value) {
         this.spinner.show();
