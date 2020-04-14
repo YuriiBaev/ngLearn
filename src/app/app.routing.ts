@@ -11,6 +11,7 @@ import * as route from 'app/constants/routes';
 import { PostDetailComponent } from '@components/posts/post-detail/post-detail.component';
 import { EditPostComponent } from '@components/posts/edit-post/edit-post.component';
 import { NgModule } from '@angular/core';
+import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
@@ -28,7 +29,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      preloadingStrategy: CustomPreloadingStrategy,
+      onSameUrlNavigation: 'reload'
+    })],
   exports: [RouterModule]
 })
 
